@@ -12,7 +12,7 @@ If events_api plugin (https://github.com/arckinteractive/events_api) is enabled,
 
 ### Use as UI for visualizing on calendar any date/time related entities
 
-## List of future improvements/issues fixes ##
+#### List of future improvements/issues fixes
 - [ ] add output for timezone and locate
 - [ ] display localization language names on selection list (now localization id is displayed)
 - [ ] add option for submitting repeated events
