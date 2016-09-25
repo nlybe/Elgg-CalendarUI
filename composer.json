@@ -1,0 +1,13 @@
+{
+    "name": "nlybe/calendar_ui",
+    "type": "elgg-plugin",
+    "require": {
+        "composer/installers": ">=1.0.8"
+    },
+    "require": {
+        "php": ">=5.3.3",
+        "composer/installers": ">=1.0.8",
+        "moment/moment": ">=2.14.1"
+    },        
+    "license": "GPL-2.0"
+}

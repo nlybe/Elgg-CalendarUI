@@ -1,0 +1,73 @@
+/**
+ * Elgg Calendar UI plugin
+ * @package calendar_ui
+ */
+
+#calendar {
+    /* max-width: 900px; */
+    margin: 20px auto;
+    width: 100%;
+}
+
+.c_elements {
+    display: none;
+}
+
+.event_dialog_form {
+    display: none;
+}
+
+/* DivTable.com */
+.divTable{
+    display: table;
+    width: 100%;
+    margin: 10px 0;
+}
+.divTableRow {
+    display: table-row;
+    background-color: #f9f9f9;
+}
+.divTableHeading {
+    background-color: #EEE;
+    display: table-header-group;
+}
+.divTableCell, .divTableHead {
+    border: 1px solid #fff;
+    display: table-cell;
+    padding: 4px 10px;
+}
+.divTableHeading {
+    background-color: #EEE;
+    display: table-header-group;
+    font-weight: bold;
+}
+.divTableFoot {
+    background-color: #EEE;
+    display: table-footer-group;
+    font-weight: bold;
+}
+.divTableBody {
+    display: table-row-group;
+}
+
+.cui_label {
+    width: 130px;
+    font-weight: bold;
+}
+
+.cui_check .fa {
+    color: green;
+}
+
+.cui_timezone {
+    color: #696969;
+    font-size:90%;
+    margin: 5px 0 0 0;
+}
+
+.cui_timezone::before {
+    content: "\f274";
+    font-family: FontAwesome;
+    margin: 0 5px 0 0;
+    color: #696969;
+}
