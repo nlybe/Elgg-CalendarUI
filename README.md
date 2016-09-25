@@ -23,6 +23,7 @@ The [events_api](https://github.com/arckinteractive/events_api) plugin is sugges
 
 ### Use as Calendar UI API 
 Calendar UI can be used as API for visualizing on calendar any date/time related entities. The following options are available:
+- Elgg view for visualizing on calendar any date/time related entities
 - Timezone input
 - Locale input
 
