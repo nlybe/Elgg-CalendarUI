@@ -14,6 +14,7 @@ The [events_api](https://github.com/arckinteractive/events_api) plugin is sugges
 - Both site and users calendar are available
 - Users can submit events directly from calendar
 - Option for timezone dependant events
+- Option to set an event as "background event" for other users 
 
 #### For site administrators
 - Enable option for users to select the own timezone 
