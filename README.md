@@ -11,7 +11,7 @@ If [events_api](https://github.com/arckinteractive/events_api) plugin is enabled
 ### Use as Events Plugin UI
 The [events_api](https://github.com/arckinteractive/events_api) plugin is suggested, so the following options are available:
 #### For community users
-- Both site and users calendar
+- Both site and users calendar are available
 - Users can submit events directly from calendar
 - Option for timezone dependant events
 
