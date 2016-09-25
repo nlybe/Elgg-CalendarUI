@@ -4,7 +4,7 @@
 
 Elgg calendar UI integrating the JS library [FullCalendar.io](https://fullcalendar.io/).
 
-If [events_api](https://github.com/arckinteractive/events_api) is enabled, community members can manage their own calendar and events.
+If [events_api](https://github.com/arckinteractive/events_api) plugin is enabled, community members can manage their own calendar and events.
 
 ## Features
 
