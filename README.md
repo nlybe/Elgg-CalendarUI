@@ -31,7 +31,7 @@ Calendar UI can be used as API for visualizing any date/time related entities. T
 ## Acknowledgements
 The plugin was initially sponsored by [Inflexion Online](http://inflexiononline.com/) 
 
-#### List of future improvements/issues fixes
+## List of future improvements/issues fixes
 - [ ] Add option to select which calendars to enable from admin panel
 - [ ] Add option for users to select business hours
 - [ ] Add option for submitting repeated events
