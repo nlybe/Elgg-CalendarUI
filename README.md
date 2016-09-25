@@ -9,8 +9,22 @@ If [events_api](https://github.com/arckinteractive/events_api) plugin is enabled
 ## Features
 
 ### Use as Events Plugin UI
+The [events_api](https://github.com/arckinteractive/events_api) plugin is suggested, so the following options are available:
+#### For community users
+- Both site and users calendar
+- Users can submit events directly from calendar
 
-### Use as UI for visualizing on calendar any date/time related entities
+#### For site administrator
+- Enable option for users to select the own timezone 
+- Set default localization
+- Enable option for users to select the own localization
+- Set default date/time format
+- Allow or not overlapping events
+
+### Use as Calendar UI API 
+Calendar UI can be used as API for visualizing on calendar any date/time related entities. The following options are available:
+- Timezone input
+- Locale input
 
 #### List of future improvements/issues fixes
 - [ ] add output for timezone and locate
