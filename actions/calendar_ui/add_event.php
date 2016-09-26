@@ -76,6 +76,10 @@ else {
         $start_time = '12:00am';
         $end_time = '11:59pm';
     }*/
+
+    if (!$timezone) {
+        $timezone = CalendarOptions::getActiveTimezone();
+    }
     
     // sanity check - events must have a start date, and an end date, and they must end after they start
     $dt = new DateTime(null, new DateTimeZone($timezone));

@@ -17,7 +17,7 @@ define(function (require) {
         var c_owner_guid = $('#c_owner_guid').html();
         var events_api_exists = $('#events_api_exists').html();
         var timezone = cui_settings['active_timezone'];
-        
+console.log(timezone);        
         var selectable = false;
         if (elgg.get_page_owner_guid() == elgg.get_logged_in_user_guid() || elgg.is_admin_logged_in()) {
             selectable = true;

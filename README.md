@@ -29,9 +29,6 @@ Calendar UI can be used as API for visualizing any date/time related entities. T
 - Form input for timezone
 - Form input for locale
 
-## Acknowledgements
-The plugin was initially sponsored by [Inflexion Online](http://inflexiononline.com/) 
-
 ## Future Tasks List
 - [ ] Add option to select which calendars to enable from admin panel
 - [ ] Add option for users to select business hours

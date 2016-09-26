@@ -97,6 +97,13 @@ if (CalendarOptions::isUserTimezoneEnabled()) {
     ));
     $dialog_form .= elgg_format_element('div', ['class' => 'elgg-field'], $dialog_form_edt);
 }
+else {
+    $dialog_form .= elgg_view_input('hidden', array(
+        'id' => 'timezone',
+        'name' => 'timezone',
+        'value' => $timezone,
+    ));    
+}
 
 $dialog_form .= elgg_view_input('text', array(
     'id' => 'location',
