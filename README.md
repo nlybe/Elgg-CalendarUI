@@ -33,12 +33,12 @@ Calendar UI can be used as API for visualizing any date/time related entities. T
 ## Future Tasks List
 - [ ] Add option to select which calendars to enable from admin panel
 - [ ] Add option for submitting repeated events
-- [ ] Add output for timezone and locate
+- [ ] Add output view for timezone and locate
 - [ ] Display localization language names on selection list (now localization id is displayed)
 - [ ] Add calendar support for groups
 - [ ] Option to add multi-day events from calendar
 - [ ] On event view display date according locale selected
-- [ ] If other calendar locale selected than 'en', the submission is not working directly from calendar. Also events are not displayed in other locale
+- [ ] If other calendar locale selected than 'en', the submission is not working directly from calendar.
 - [ ] Add widgets
-- [ ] Add option for users to create more personal calendars (as offered this option from events_api)
+- [ ] Add option for users to create/edit more personal calendars (as offered this option from events_api)
 - [ ] Add guidelines about how to use as as Calendar UI API 
