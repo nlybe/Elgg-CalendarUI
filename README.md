@@ -1,6 +1,6 @@
 # Elgg Calendar UI
 
-![Elgg 2.2](https://img.shields.io/badge/Elgg-2.2-orange.svg?style=flat-square)
+![Elgg 2.1](https://img.shields.io/badge/Elgg-2.1-orange.svg?style=flat-square)
 
 Elgg calendar UI integrating the JS library [FullCalendar.io](https://fullcalendar.io/).
 
