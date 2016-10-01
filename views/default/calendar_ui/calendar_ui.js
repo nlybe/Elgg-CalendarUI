@@ -17,11 +17,24 @@ define(function (require) {
         var c_owner_guid = $('#c_owner_guid').html();
         var events_api_exists = $('#events_api_exists').html();
         var timezone = cui_settings['active_timezone'];
-console.log(timezone);        
+        var business_hours = $('#business_hours').html();
+        
         var selectable = false;
         if (elgg.get_page_owner_guid() == elgg.get_logged_in_user_guid() || elgg.is_admin_logged_in()) {
             selectable = true;
         }  
+        
+        // set calendar business hours
+        var businessHours = [];
+        if (business_hours.length > 0) {
+            $.each($.parseJSON(business_hours), function (item, value) {
+                businessHours.push({
+                    dow: value.dow,
+                    start: value.start,
+                    end: value.end
+                });
+            });
+        }        
 
         $('#calendar').fullCalendar({
             //theme: true,
@@ -35,8 +48,9 @@ console.log(timezone);
             defaultView: 'agendaWeek',
             navLinks: true, // can click day/week names to navigate views
             selectable: selectable,
-            selectConstraint: 'businessHours',
+            //selectConstraint: 'businessHours',
             eventConstraint: 'businessHours',
+            businessHours: businessHours,
             selectHelper: true,
             select: function(start, end) {
                 if (events_api_exists==1) { // only if events_api plugin is enabled
@@ -50,8 +64,8 @@ console.log(timezone);
 
                             var dialog = $( "#dialog-form" ).dialog({
                                 autoOpen: false,
-                                height: 500,
-                                width: 600,
+                                height: 600,
+                                width: 650,
                                 modal: true,
                                 buttons: {
                                     Cancel: function() {
@@ -142,13 +156,6 @@ console.log(timezone);
             editable: true,
             eventLimit: true, // allow "more" link when too many events
             eventOverlap: false,
-            businessHours: {
-                // days of week. an array of zero-based day of week integers (0=Sunday)
-                dow: [ 0, 1, 2, 3, 4, 5, 6 ], // Monday - Thursday
-                start: '06:00', 
-                end: '24:00' 
-                // set multiple business hours --> http://stackoverflow.com/questions/30977505/how-to-add-multiple-business-hours-in-fullcalendar
-            },            
             events: function(start, end, timezone, callback) {
                 // Calculate dates to search according calendar view. Default is 3 months
                 var date = $('#calendar').fullCalendar('getDate')._d;
@@ -232,7 +239,7 @@ console.log(timezone);
                 }
             }
         });
-        
+    
         $(".fc-today-button").click(function() {
             $("calendar").fullCalendar({
                 eventAfterAllRender: function(){

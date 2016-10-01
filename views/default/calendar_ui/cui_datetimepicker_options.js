@@ -7,7 +7,6 @@ define(function(require) {
         yearStart:new Date().getFullYear(),
         yearEnd:(new Date().getFullYear() + 2),
         lazyInit:true, // alliws sthn prwth emfnaish deixnei lathos hmerominia
-        //lang:'el'
     };
     options.dateTimeOptions = {
         timepicker:true,
@@ -20,7 +19,14 @@ define(function(require) {
         yearStart:new Date().getFullYear(),
         yearEnd:(new Date().getFullYear() + 2),
         lazyInit:true,
-        //lang:'el'
     };
+    options.timeOptions = {
+        datepicker:false,
+        timepicker:true,
+        format:'G:i',
+        todayButton:false,
+        lazyInit:true, // alliws sthn prwth emfnaish deixnei lathos hmerominia
+        //lang:'el'
+    };    
     return options;
 });

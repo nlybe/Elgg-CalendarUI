@@ -5,7 +5,6 @@
  */
 
 elgg_require_js("calendar_ui/cui_datetimepicker");
-
 elgg_load_css('cui_datetimepicker');
 
 $entity = elgg_extract("entity", $vars, "");

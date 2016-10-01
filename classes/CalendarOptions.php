@@ -13,6 +13,7 @@ class CalendarOptions {
     const CALENDAR_UI_DEFAULT_TIME_FORMAT = 'h:i a';    // default date format
     const CALENDAR_UI_YES = 'yes';  // general purpose yes
     const CALENDAR_UI_NO = 'no';    // general purpose no
+    const CALENDAR_UI_BUSINESS_HOURS = 'business_hours';    // annotation string for setting business hours on calendar
     
     /**
      * Retrieve menu item option from settings. Return default if not specified.

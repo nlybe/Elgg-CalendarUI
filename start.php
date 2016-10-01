@@ -83,6 +83,8 @@ function calendar_ui_init() {
     elgg_register_action('calendar_ui/search', "$action_path/search.php", 'public');
     elgg_register_action('calendar_ui/add_event', "$action_path/add_event.php");
     elgg_register_action('calendar_ui/view_event', "$action_path/view_event.php", 'public');
+    elgg_register_action('calendar_ui/business_hours', "$action_path/business_hours.php", 'public');
+    
     
     // replace delete action from events_api
     elgg_register_action('events/delete');
@@ -99,17 +101,28 @@ function calendar_ui_page_handler($page) {
     elgg_push_breadcrumb(elgg_echo('calendar_ui:site'), 'calendar');
     $resource_vars = array();
     
-    $username = $page[0];
-    if (isset($username)) {
-        $user = get_user_by_username($page[0]);
+    switch ($page[0]) {
+        case 'business_hours':
+            if (elgg_is_active_plugin('events_api')) {
+                $resource_vars['calendar_guid'] = elgg_extract(1, $page);
+                echo elgg_view_resource('calendar_ui/business_hours', $resource_vars);
+            } 
+            else {
+                echo elgg_echo('calendar_ui:form:event:no_events_api');
+            }
+            break;  
+        
+        default:
+            $user = get_user_by_username($page[0]);
+            if ($user instanceof \ElggUser) {
+                elgg_set_page_owner_guid($user->guid);
+                $resource_vars['username'] = $page[0];
+            }            
+            
+            echo elgg_view_resource('calendar_ui/calendar', $resource_vars);
+            return false;
+    }     
     
-        if ($user instanceof \ElggUser) {
-            elgg_set_page_owner_guid($user->guid);
-            $resource_vars['username'] = $username;
-        }
-    }
-    
-    echo elgg_view_resource('calendar_ui/calendar', $resource_vars);
     return true;
 }
 

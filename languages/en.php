@@ -17,6 +17,8 @@ $lang = array(
     // calendar
     'calendar_ui:user:title' => "%s's Calendar",
     'calendar_ui:events:calendar:display_name' => '%s\'s Calendar',
+    'calendar_ui:calendar:invalid' => 'Invalid calendar',
+    'calendar_ui:calendar:invalid_access' => 'Invalid access to this calendar',
         
     // create form event
     'calendar_ui:form:title' => "Create Event",
@@ -40,6 +42,18 @@ $lang = array(
     'calendar_ui:events:unknown' => 'Invalid access to this event',
     'calendar_ui:events:edit' => 'Edit %s',
     'calendar_ui:events:overlapping:error' => 'Overlapping events are not allowed',
+    
+    // business hours
+    'calendar_ui:calendar:business_hours:btn' => 'Edit Business Hours',
+    'calendar_ui:calendar:business_hours:title' => 'Set business hours for your calendar',
+    'calendar_ui:calendar:business_hours:add_more' => '%s Add Line',
+    'calendar_ui:calendar:business_hours:add_line' => 'Add this line',
+    'calendar_ui:calendar:business_hours:remove_line' => 'Remove this line',
+    'calendar_ui:calendar:business_hours:success' => 'Business Hours was successfully saved',
+    'calendar_ui:calendar:business_hours:error' => 'Empty or invalid days/hours',
+    'calendar_ui:calendar:business_hours:day' => 'Week Day',
+    'calendar_ui:calendar:business_hours:start' => 'Time Start',
+    'calendar_ui:calendar:business_hours:end' => 'Time End',
     
     // user settings
     'calendar_ui:settings:user:localization:title' => "Localization Settings",
@@ -73,6 +87,7 @@ $lang = array(
     'calendar_ui:settings:time_format:help' => "Time date format for displaying time. It will not affect if selected as 'Date Format' the full format (1st option)",
     'calendar_ui:settings:allow_overlap' => "Allow Overlapping Events",
     'calendar_ui:settings:allow_overlap:help' => "Select <strong>No</strong> if is not allowed to create overlapping events.",
+    
     
 );
 

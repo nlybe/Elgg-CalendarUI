@@ -13,8 +13,9 @@ The [events_api](https://github.com/arckinteractive/events_api) plugin is sugges
 #### For community users
 - Both site and users calendar are available
 - Users can submit events directly from calendar
-- Option for timezone dependant events
+- Option for time zone dependant events
 - Option to set an event as "background event" for other users 
+- Option to set business hours of calendar 
 
 #### For site administrators
 - Enable option for users to select the own timezone 
@@ -31,7 +32,6 @@ Calendar UI can be used as API for visualizing any date/time related entities. T
 
 ## Future Tasks List
 - [ ] Add option to select which calendars to enable from admin panel
-- [ ] Add option for users to select business hours
 - [ ] Add option for submitting repeated events
 - [ ] Add output for timezone and locate
 - [ ] Display localization language names on selection list (now localization id is displayed)

@@ -46,6 +46,16 @@ if (elgg_is_active_plugin('events_api')) {
         $container_guid = $calendar->getGUID();
     }
 
+    if ($calendar->canEdit()) {
+        $edit_business_hours_btn = elgg_view('output/url', array(
+            'text' => elgg_echo('calendar_ui:calendar:business_hours:btn'),
+            'href' => elgg_normalize_url('calendar/business_hours/'.$calendar->guid),
+            'is_trusted' => true,
+            'class' => 'elgg-button elgg-button-submit elgg-lightbox',
+            'style' => 'float:right;',		
+        ));
+    }
+    
     $vars['action'] = 'calendar_ui/search'; // action to be used for searching entities and send to calendar
     $vars['subtype'] = 'event';             // this is optional, it can be set directly to action file as defined above
     $vars['limit'] = elgg_extract('limit', $vars, 0);
@@ -53,14 +63,17 @@ if (elgg_is_active_plugin('events_api')) {
     $vars['calendar_guid'] = $calendar->getGUID();
     $vars['owner_guid'] = $owner_guid;
     $vars['timezone'] = CalendarOptions::getActiveTimezone();
-    // $vars['start_dt'] = 'event'; // OBS
-    // $vars['end_dt'] = 'event'; // OBS
+    
+    $business_hours = $calendar->getAnnotations(CalendarOptions::CALENDAR_UI_BUSINESS_HOURS);
+    if ($business_hours) {
+        $vars['business_hours'] = $business_hours[0]->value;
+    }    
 }
 else {
     $title = elgg_echo('calendar_ui:menu');
 }
 
-/* // tmp code for mass deletion of event
+/* // tmp code for mass deletion of events
 $options = array(
     'type' => 'object',
     'subtype' => $c_subtype,
@@ -76,6 +89,9 @@ foreach ($entities as $e) {
     $e->delete();
 } */
 
+if (isset($edit_business_hours_btn)) {
+    $content = $edit_business_hours_btn;
+}
 $content .= elgg_view('calendar_ui/calendar', $vars);
 
 $body = elgg_view_layout('one_column', array(

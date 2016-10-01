@@ -1,8 +1,11 @@
+//var datetimepickerOptions;
+
 define(function(require) {
     var elgg = require('elgg');
     var $ = require('jquery');
     require('jquery-mousewheel');
     require('cui_datetimepicker_js');
+    //datetimepickerOptions = require('calendar_ui/cui_datetimepicker_options');
     
     $(document).ready(function() {
 
@@ -17,7 +20,6 @@ define(function(require) {
                 var res = str.split(" "); 
                 $('#start_date').val(res[0]);
                 $('#start_time').val(formatDate($('#start_datetime').val()));
-                //console.log(formatDate($('#start_datetime').val()));
             }
         });
 
@@ -32,7 +34,7 @@ define(function(require) {
                 $('#end_time').val(formatDate($('#end_datetime').val()));
             }
         });
-      
+        
     });
     
     // get time on 13:15am format for a given date

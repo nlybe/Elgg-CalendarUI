@@ -71,3 +71,23 @@
     margin: 0 5px 0 0;
     color: #696969;
 }
+
+#calendar {
+    margin: 30px auto;
+}
+
+/* business hours form */
+.elgg-form-calendar-ui-business-hours fieldset > div, .elgg-field {
+    margin: 0px;
+}
+
+.elgg-form-calendar-ui-business-hours .divTable {
+    margin: 8px 0;
+}
+
+.elgg-form-calendar-ui-business-hours .divTableCell, 
+.elgg-form-calendar-ui-business-hours .divTableHead {
+    text-align: center;
+}
+
+/* ******************* */
