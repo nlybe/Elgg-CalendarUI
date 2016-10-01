@@ -36,7 +36,6 @@ Calendar UI can be used as API for visualizing any date/time related entities. T
 - [ ] Add output view for timezone and locate
 - [ ] Display localization language names on selection list (now localization id is displayed)
 - [ ] Add calendar support for groups
-- [ ] Option to add multi-day events from calendar
 - [ ] On event view display date according locale selected
 - [ ] If other calendar locale selected than 'en', the submission is not working directly from calendar.
 - [ ] Add widgets
