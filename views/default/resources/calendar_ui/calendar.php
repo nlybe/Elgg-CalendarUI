@@ -10,8 +10,6 @@ use DateTime;
 use DateTimeZone;
 use CalendarOptions;
 
-//date_default_timezone_set(CalendarOptions::getActiveTimezone());
-
 if (elgg_is_active_plugin('events_api')) {
 
     $username = elgg_extract('username', $vars, '');

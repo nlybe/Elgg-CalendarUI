@@ -18,7 +18,24 @@ define(function (require) {
                 .text(localeCode)
             );
         });        
+
+        // initialize profile types box
+        toggleRrofileTypes();
         
+        $('#enable_user_calendar').change(function() {
+            toggleRrofileTypes();      
+        });        
     });
+    
+    function toggleRrofileTypes() {
+        if($("#enable_user_calendar").is(':checked')) {
+            $( ".cui_profile_types_list input" ).prop( "disabled", false );
+            $('.cui_profile_types_list fieldset').css('background','#fff')
+        }
+        else {
+            $( ".cui_profile_types_list input" ).prop( "disabled", true );
+            $('.cui_profile_types_list fieldset').css('background','#eaeaea')
+        }        
+    }
     
 });

@@ -23,6 +23,7 @@ The [events_api](https://github.com/arckinteractive/events_api) plugin is sugges
 - Enable option for users to select the own localization
 - Set default date/time format
 - Allow or not overlapping events
+- Option to enable or disable calendar for site and users
 
 ### Use as Calendar UI API 
 Calendar UI can be used as API for visualizing any date/time related entities. The following options are available:
@@ -31,7 +32,6 @@ Calendar UI can be used as API for visualizing any date/time related entities. T
 - Form input for locale
 
 ## Future Tasks List
-- [ ] Add option to select which calendars to enable from admin panel
 - [ ] Add option for submitting repeated events
 - [ ] Add output view for timezone and locate
 - [ ] Display localization language names on selection list (now localization id is displayed)

@@ -13,6 +13,8 @@ $lang = array(
     'item:object:event' => "Events",
     'item:object:calendar' => "Calendars",
     'calendar_ui:timezone' => "Timezone: %s",
+    'calendar_ui:calendar:site:disabled' => "Site calendar is not enabled",
+    'calendar_ui:calendar:user:disabled' => "User's calendar is not enabled",
     
     // calendar
     'calendar_ui:user:title' => "%s's Calendar",
@@ -39,6 +41,7 @@ $lang = array(
     'calendar_ui:form:event:failed' => "Error while saving event",
     'calendar_ui:form:event:title_empty' => "Title cannot be empty",
     'calendar_ui:form:event:no_events_api' => "Error: events_api plugin is not enabled",
+    'calendar_ui:form:event:no_profile_manager' => "Error: profile_manager plugin is not enabled",
     'calendar_ui:events:unknown' => 'Invalid access to this event',
     'calendar_ui:events:edit' => 'Edit %s',
     'calendar_ui:events:overlapping:error' => 'Overlapping events are not allowed',
@@ -87,8 +90,13 @@ $lang = array(
     'calendar_ui:settings:time_format:help' => "Time date format for displaying time. It will not affect if selected as 'Date Format' the full format (1st option)",
     'calendar_ui:settings:allow_overlap' => "Allow Overlapping Events",
     'calendar_ui:settings:allow_overlap:help' => "Select <strong>No</strong> if is not allowed to create overlapping events.",
-    
-    
+    'calendar_ui:settings:calendars' => "Enable Calendars",
+    'calendar_ui:settings:enable_site_calendar' => "Site Calendar",
+    'calendar_ui:settings:enable_site_calendar:help' => "Select <strong>Yes</strong> if want to enable calendar for site events.",
+    'calendar_ui:settings:enable_user_calendar' => "User's Calendar",
+    'calendar_ui:settings:enable_user_calendar:help' => "Select <strong>Yes</strong> if want to allow users keep their own calendar.",
+    'calendar_ui:settings:enable_user_calendar:pm_intro' => "Select below the profile types for which the calendar will be enabled",
+    'calendar_ui:settings:calendars:general_title' => "General Calendar Options",
 );
 
 add_translation("en", $lang);

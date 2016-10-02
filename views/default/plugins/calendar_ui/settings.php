@@ -11,10 +11,38 @@ $options_yes_no = array(
     CalendarOptions::CALENDAR_UI_NO => elgg_echo('calendar_ui:settings:no'),
 );
 
+// enable calendar for site events
+$enable_calendars = elgg_format_element('div', [], elgg_view_input('checkbox', array(
+    'id' => 'enable_site_calendar',
+    'name' => 'params[enable_site_calendar]',
+    'label' => elgg_echo('calendar_ui:settings:enable_site_calendar'),
+    'checked' => ($plugin->enable_site_calendar || !isset($plugin->enable_site_calendar) ? true : false),
+    'help' => elgg_echo('calendar_ui:settings:enable_site_calendar:help'),
+    'required' => false,
+)));
+
+// enable calendar for users 
+$enable_calendars .=  elgg_format_element('div', [], elgg_view_input('checkbox', array(
+    'id' => 'enable_user_calendar',
+    'name' => 'params[enable_user_calendar]',
+    'label' => elgg_echo('calendar_ui:settings:enable_user_calendar'),
+    'checked' => ($plugin->enable_user_calendar || !isset($plugin->enable_user_calendar) ? true : false),
+    'help' => elgg_echo('calendar_ui:settings:enable_user_calendar:help'),
+    'required' => false,
+)));
+
+if (elgg_is_active_plugin('profile_manager')) {
+    $enable_calendars .= elgg_view('forms/profile_manager/profile_types', array('plugin' => $plugin));
+}
+
+$title = elgg_format_element('h3', [], elgg_echo('calendar_ui:settings:calendars'));
+echo elgg_view_module('inline', '', $enable_calendars, ['header' => $title]);
+
+$general_setting = '';
 // timezone settings
-echo elgg_format_element('div', [], elgg_view_input('dropdown', array(
+$general_setting .= elgg_format_element('div', [], elgg_view_input('dropdown', array(
     'name' => 'params[enable_timezone]',
-    'value' => ($plugin->enable_timezone?$plugin->enable_timezone:CALENDAR_UI_NO),
+    'value' => ($plugin->enable_timezone?$plugin->enable_timezone:CalendarOptions::CALENDAR_UI_NO),
     'options_values' => $options_yes_no,
     'label' => elgg_echo('calendar_ui:settings:enable_timezone'),
     'help' => elgg_echo('calendar_ui:settings:enable_timezone:help'),
@@ -22,7 +50,7 @@ echo elgg_format_element('div', [], elgg_view_input('dropdown', array(
 ))); 
 
 // locale settings
-echo elgg_format_element('div', [], elgg_view('input/locale', array(
+$general_setting .= elgg_format_element('div', [], elgg_view('input/locale', array(
     'name' => 'params[default_locale]',
     'value' => $plugin->default_locale,
     'label' => elgg_echo('calendar_ui:settings:default_locale'),
@@ -30,7 +58,7 @@ echo elgg_format_element('div', [], elgg_view('input/locale', array(
     'required' => false,
 ))); 
 
-echo elgg_format_element('div', [], elgg_view_input('dropdown', array(
+$general_setting .= elgg_format_element('div', [], elgg_view_input('dropdown', array(
     'name' => 'params[user_locale]',
     'value' => ($plugin->user_locale?$plugin->user_locale:CalendarOptions::CALENDAR_UI_NO),
     'options_values' => $options_yes_no,
@@ -58,7 +86,7 @@ $dformat = array(
     "Y/n/d" => "2020/1/31",    
 );
 
-echo elgg_format_element('div', [], elgg_view_input('dropdown', array(
+$general_setting .= elgg_format_element('div', [], elgg_view_input('dropdown', array(
     'name' => 'params[date_format]',
     'value' => ($plugin->date_format?$plugin->date_format:CalendarOptions::CALENDAR_UI_DEFAULT_DATE_FORMAT),
     'options_values' => $dformat,
@@ -70,11 +98,11 @@ echo elgg_format_element('div', [], elgg_view_input('dropdown', array(
 // date format settings
 $tformat = array(
     "H:i" => "23:00",
-    "h:i a" => "01:00 am",
-    "h:i A" => "01:00 AM",
+    "h:i a" => "11:00 pm",
+    "h:i A" => "11:00 PM",
 );
 
-echo elgg_format_element('div', [], elgg_view_input('dropdown', array(
+$general_setting .= elgg_format_element('div', [], elgg_view_input('dropdown', array(
     'name' => 'params[time_format]',
     'value' => ($plugin->time_format?$plugin->time_format:CalendarOptions::CALENDAR_UI_DEFAULT_TIME_FORMAT),
     'options_values' => $tformat,
@@ -84,29 +112,14 @@ echo elgg_format_element('div', [], elgg_view_input('dropdown', array(
 )));
 
 // overlapping events
-echo elgg_format_element('div', [], elgg_view_input('dropdown', array(
+$general_setting .= elgg_format_element('div', [], elgg_view_input('dropdown', array(
     'name' => 'params[allow_overlap]',
-    'value' => ($plugin->allow_overlap?$plugin->allow_overlap:CALENDAR_UI_YES),
+    'value' => ($plugin->allow_overlap?$plugin->allow_overlap:CalendarOptions::CALENDAR_UI_YES),
     'options_values' => $options_yes_no,
     'label' => elgg_echo('calendar_ui:settings:allow_overlap'),
     'help' => elgg_echo('calendar_ui:settings:allow_overlap:help'),
     'required' => false,
 ))); 
 
-
-// menu settings
-$menu_target_values = array(
-    'site_calendar' => elgg_echo('calendar_ui:settings:menu_target:site_calendar'),
-    'user_calendar' => elgg_echo('calendar_ui:settings:menu_target:user_calendar'),
-    'no' => elgg_echo('calendar_ui:settings:menu_target:no'),
-); 
-
-echo elgg_format_element('div', [], elgg_view_input('dropdown', array(
-    'name' => 'params[menu_target]',
-    'value' => ($plugin->menu_target?$plugin->menu_target:CALENDAR_UI_DEFAULT_MENU_ITEM),
-    'options_values' => $menu_target_values,
-    'label' => elgg_echo('calendar_ui:settings:menu_target'),
-    'help' => elgg_echo('calendar_ui:settings:menu_target:help'),
-    'required' => false,
-))); 
-
+$general_title = elgg_format_element('h3', [], elgg_echo('calendar_ui:settings:calendars:general_title'));
+echo elgg_view_module('inline', '', $general_setting, ['header' => $general_title]);

@@ -1,0 +1,18 @@
+/**
+ * Elgg Calendar UI plugin
+ * @package calendar_ui
+ */
+
+.cui_profile_types_list {
+    padding: 0 0 0 20px;
+    margin: 0 0 20px 0;
+}
+
+.cui_profile_types_list fieldset {
+    border:1px solid #eaeaea; 
+    padding: 5px 10px;
+}
+
+.cui_profile_types_list fieldset legend{
+    padding: 0px 5px;
+}

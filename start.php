@@ -27,7 +27,8 @@ function calendar_ui_init() {
         
     // register extra css
     elgg_extend_view('elgg.css', 'calendar_ui/calendar_ui.css');
-
+    elgg_extend_view('css/admin', 'calendar_ui/calendar_ui_admin.css');
+    
     elgg_define_js('cui_fullcalendar_js', array(
         'src' => "//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.0.0/fullcalendar.min.js", 
         'deps' => array('jquery', 'moment'),
@@ -55,15 +56,8 @@ function calendar_ui_init() {
     }    
     
     // Site navigation
-    $menu_item = CalendarOptions::getMenuSetting();
-    if ( $menu_item != 'no') {
-        if ($menu_item == 'user_calendar' && elgg_is_logged_in()) {
-            $user = elgg_get_logged_in_user_entity();
-            $item = new ElggMenuItem('calendar', elgg_echo('calendar_ui:menu:user'), "calendar/{$user->username}");
-        }
-        else {
-            $item = new ElggMenuItem('calendar', elgg_echo('calendar_ui:menu'), 'calendar');
-        }
+    if ( CalendarOptions::isSiteCalendarEnabled() ) {
+        $item = new ElggMenuItem('calendar', elgg_echo('calendar_ui:menu'), 'calendar');
         elgg_register_menu_item('site', $item); 
     }
     
@@ -83,8 +77,7 @@ function calendar_ui_init() {
     elgg_register_action('calendar_ui/search', "$action_path/search.php", 'public');
     elgg_register_action('calendar_ui/add_event', "$action_path/add_event.php");
     elgg_register_action('calendar_ui/view_event', "$action_path/view_event.php", 'public');
-    elgg_register_action('calendar_ui/business_hours', "$action_path/business_hours.php", 'public');
-    
+    elgg_register_action('calendar_ui/business_hours', "$action_path/business_hours.php", 'public');    
     
     // replace delete action from events_api
     elgg_register_action('events/delete');
@@ -115,11 +108,28 @@ function calendar_ui_page_handler($page) {
         default:
             $user = get_user_by_username($page[0]);
             if ($user instanceof \ElggUser) {
-                elgg_set_page_owner_guid($user->guid);
+                elgg_set_page_owner_guid($user->getGUID());
                 $resource_vars['username'] = $page[0];
+                
+                if ( CalendarOptions::isUserCalendarEnabled($user->username) ) {
+                    echo elgg_view_resource('calendar_ui/calendar', $resource_vars);
+                }
+                else {
+                    register_error(elgg_echo('calendar_ui:calendar:user:disabled')); 
+                    forward(elgg_get_site_url());
+                }
             }            
+            else {
+                if ( CalendarOptions::isSiteCalendarEnabled() ) {
+                    // go to site calendar only if enabled in settings
+                    echo elgg_view_resource('calendar_ui/calendar', $resource_vars);
+                }
+                else {
+                    register_error(elgg_echo('calendar_ui:calendar:site:disabled')); 
+                    forward(elgg_get_site_url());
+                }
+            }
             
-            echo elgg_view_resource('calendar_ui/calendar', $resource_vars);
             return false;
     }     
     
@@ -147,11 +157,9 @@ function calendar_ui_event_page_handler($page) {
             break;
             
         default:
-            echo elgg_view_resource('calendar_ui/calendar', $resource_vars);
             return false;
     }    
-    return true;
-    
+    return true;   
     
 }
 

@@ -16,18 +16,47 @@ class CalendarOptions {
     const CALENDAR_UI_BUSINESS_HOURS = 'business_hours';    // annotation string for setting business hours on calendar
     
     /**
-     * Retrieve menu item option from settings. Return default if not specified.
+     * Check if site calendar is enabled in settings. Return true if yes.
      * 
-     * @return type
+     * @return boolean
      */
-    Public Static function getMenuSetting() {
-        $menu_target = elgg_get_plugin_setting('menu_target', CalendarOptions::CALENDAR_UI_ID);
+    Public Static function isSiteCalendarEnabled() {
+        $enable_site_calendar = elgg_get_plugin_setting('enable_site_calendar', CalendarOptions::CALENDAR_UI_ID);
+        
+        if ($enable_site_calendar === 'on') {
+            return true;
+        }
 
-        if (!empty('$menu_target'))
-            return $menu_target;
-
-        return CalendarOptions::CALENDAR_UI_DEFAULT_MENU_ITEM;
+        return false;
     }
+    
+    /**
+     * Check if site calendar is enabled in settings. Return true if yes.
+     * 
+     * @return boolean
+     */
+    Public Static function isUserCalendarEnabled($username = '') {
+        $enable_user_calendar = elgg_get_plugin_setting('enable_user_calendar', CalendarOptions::CALENDAR_UI_ID);
+
+        if ($enable_user_calendar === 'on') {
+            if (!elgg_is_active_plugin('profile_manager')) {
+                // if profile_manager plugin is not enabled, return true
+                return true;
+            }
+            else {
+                // otherwise we check the specific profile type of the user, as has been set in profile manager
+                $user = get_user_by_username($username);
+                if ($user instanceof \ElggUser) {
+                    $user_profile_calendar = elgg_get_plugin_setting('profile_type_'.$user->custom_profile_type, CalendarOptions::CALENDAR_UI_ID);
+                    if ($user_profile_calendar === 'on') {
+                        return true;
+                    }
+                }
+            }
+        }
+
+        return false;
+    }    
 
     /**
      * Check various site settings and return true if have to enable localization options in user's setting
