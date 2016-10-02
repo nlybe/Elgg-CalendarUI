@@ -23,7 +23,8 @@ The [events_api](https://github.com/arckinteractive/events_api) plugin is sugges
 - Enable option for users to select the own localization
 - Set default date/time format
 - Allow or not overlapping events
-- Option to enable or disable calendar for site and users
+- Option to enable or disable calendar for site
+- Option to enable or disable calendar for users, taking in consideration profile types if [profile_manager](https://github.com/ColdTrick/profile_manager) plugin is enabled
 
 ### Use as Calendar UI API 
 Calendar UI can be used as API for visualizing any date/time related entities. The following options are available:
