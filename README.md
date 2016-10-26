@@ -2,7 +2,7 @@
 
 ![Elgg 2.1](https://img.shields.io/badge/Elgg-2.1-orange.svg?style=flat-square)
 
-Elgg calendar UI integrating the JS library [FullCalendar.io](https://fullcalendar.io/).
+Elgg calendar UI plugin integrating the JS library [FullCalendar.io](https://fullcalendar.io/).
 
 If [events_api](https://github.com/arckinteractive/events_api) plugin is enabled, community members can manage their own calendar and events.
 
@@ -39,6 +39,5 @@ Calendar UI can be used as API for visualizing any date/time related entities. T
 - [ ] Add calendar support for groups
 - [ ] On event view display date according locale selected
 - [ ] If other calendar locale selected than 'en', the submission is not working directly from calendar.
-- [ ] Add widgets
 - [ ] Add option for users to create/edit more personal calendars (as offered this option from events_api)
 - [ ] Add guidelines about how to use as as Calendar UI API 

@@ -3,7 +3,7 @@
     <name>Calendar UI</name>
     <id>calendar_ui</id>
     <author>Nikos Lyberakis</author>
-    <version>2.1</version>
+    <version>2.1.1</version>
     <category>bundled</category>
     <category>widget</category>
     <category>calendar</category>
@@ -14,7 +14,7 @@
     <license>GNU General Public License version 2</license>
     <requires>
         <type>elgg_release</type>
-        <version>2.1</version>
+        <version>2.1.0</version>
     </requires>
     <suggests>
         <type>plugin</type>

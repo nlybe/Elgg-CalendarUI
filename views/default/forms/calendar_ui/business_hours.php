@@ -139,7 +139,7 @@ echo elgg_format_element('div', ['class'=>'elgg-foot'], $footer);
             e.preventDefault();
             if(x < max_fields){ //max input box allowed
                 var last_line = $(".divTableRow:last").clone();
-console.log(last_line);                
+//console.log(last_line);                
                 x++; //text box increment
                 //$(wrapper).append('<?php echo $new_entry; ?>'); // OBS
                 $(wrapper).append(last_line); //add input box

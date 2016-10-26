@@ -10,6 +10,7 @@ $lang = array(
     'calendar_ui:menu' => "Calendar",
     'calendar_ui:menu:user' => "My Calendar",
     'calendar_ui:site' => "Site Calendar",
+    'calendar_ui:group' => "Group Calendar",
     'item:object:event' => "Events",
     'item:object:calendar' => "Calendars",
     'calendar_ui:timezone' => "Timezone: %s",
@@ -67,8 +68,15 @@ $lang = array(
     'calendar_ui:settings:user:timezone:fail' => "Failure on trying to save time zone",
     'calendar_ui:settings:user:locale:label' => "Locale",
     'calendar_ui:settings:user:localization:success' => "Locale was successfully saved",
-    'calendar_ui:settings:user:localization:fail' => "Failure on trying to save locale",    
+    'calendar_ui:settings:user:localization:fail' => "Failure on trying to save locale",   
     
+    // widgets
+    'calendar_ui:calendar:widget' => "Calendar",
+    'calendar_ui:calendar:widget:description' => "Display your calendar",
+    'calendar_ui:calendar:widget:not_available' => "Calendar is not available",
+    'calendar_ui:calendar:widget:events:not_enabled' => "Events API Plugin is not enabled",
+    'calendar_ui:calendar:widget:view_full' => "View Full Calendar",
+        
     // settings
     'calendar_ui:settings:yes' => "Yes",
     'calendar_ui:settings:no' => "No",

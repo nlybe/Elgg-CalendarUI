@@ -61,6 +61,9 @@ function calendar_ui_init() {
         elgg_register_menu_item('site', $item); 
     }
     
+    // Register menu item to an ownerblock, user or group
+    elgg_register_plugin_hook_handler('register', 'menu:owner_block', 'calendar_ui_owner_block_menu');
+    
     // Register a page handler, so we can have nice URLs for 'calendar'
     elgg_register_page_handler('calendar', 'calendar_ui_page_handler');
     // Register a page handler, so we can have nice URLs for 'events'

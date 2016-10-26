@@ -49,8 +49,7 @@ if (elgg_is_active_plugin('events_api')) {
             'text' => elgg_echo('calendar_ui:calendar:business_hours:btn'),
             'href' => elgg_normalize_url('calendar/business_hours/'.$calendar->guid),
             'is_trusted' => true,
-            'class' => 'elgg-button elgg-button-submit elgg-lightbox',
-            'style' => 'float:right;',		
+            'class' => 'elgg-button elgg-button-submit elgg-lightbox edit_business_hours_btn',
         ));
     }
     

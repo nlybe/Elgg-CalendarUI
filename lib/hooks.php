@@ -82,3 +82,33 @@ function calendar_ui_add_localization_in_user_setting($hook, $type, $return, $pa
     
     return false;
 }
+
+/**
+ * Add a calendar menu item to an ownerblock
+ * 
+ * @param type $hook
+ * @param type $type
+ * @param type $return
+ * @param type $params
+ * @return boolean|\ElggMenuItem
+ */
+function calendar_ui_owner_block_menu($hook, $type, $return, $params) {
+    if (elgg_instanceof($params['entity'], 'user')) {
+        // add calendar only if calendar is enabled for users or for this type of use (based on profile manager plugin)
+        if ( CalendarOptions::isUserCalendarEnabled($params['entity']->username) ) {
+            $url = "calendar/{$params['entity']->username}";
+            $item = new ElggMenuItem('calendar', elgg_echo('calendar_ui:menu'), $url);
+            $return[] = $item;
+        }
+    } 
+// this will be enable when add calendar to groups    
+//    else {
+//        if ($params['entity']->calendar_ui_enable != 'no') {
+//            $url = "calendar/{$params['entity']->guid}";
+//            $item = new ElggMenuItem('calendar', elgg_echo('calendar_ui:group'), $url);
+//            $return[] = $item;
+//        }
+//    }
+
+    return $return;
+}

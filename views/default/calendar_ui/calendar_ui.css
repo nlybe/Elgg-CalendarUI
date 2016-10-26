@@ -5,8 +5,32 @@
 
 #calendar {
     /* max-width: 900px; */
-    margin: 20px auto;
+    margin: 30px auto 10px;
     width: 100%;
+}
+
+.elgg-widget-content #calendar {
+    margin: 10px auto;
+}
+
+.elgg-widget-content .fc-toolbar div {
+    margin: 2px 0;
+}
+
+.elgg-widget-content .fc-toolbar div h2 {
+    font-size: 93%;
+    margin: 8px 0 0 2px;
+}
+
+.elgg-widget-content .fc th, .elgg-widget-content .fc td {
+    font-size: 90%;
+}
+
+.edit_business_hours_btn {
+    float:right;
+    margin: 0 0 10px;
+    clear: both;
+    display: block;
 }
 
 .c_elements {
@@ -70,10 +94,6 @@
     font-family: FontAwesome;
     margin: 0 5px 0 0;
     color: #696969;
-}
-
-#calendar {
-    margin: 30px auto;
 }
 
 /* business hours form */
