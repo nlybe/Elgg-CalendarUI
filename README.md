@@ -16,6 +16,7 @@ The [events_api](https://github.com/arckinteractive/events_api) plugin is sugges
 - Option for time zone dependant events
 - Option to set an event as "background event" for other users 
 - Option to set business hours of calendar 
+- Calendar widget
 
 #### For site administrators
 - Enable option for users to select the own timezone 
