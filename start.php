@@ -94,7 +94,6 @@ function calendar_ui_init() {
  * @return bool
  */
 function calendar_ui_page_handler($page) {
-    elgg_push_breadcrumb(elgg_echo('calendar_ui:site'), 'calendar');
     $resource_vars = array();
     
     switch ($page[0]) {
@@ -111,6 +110,8 @@ function calendar_ui_page_handler($page) {
         default:
             $user = get_user_by_username($page[0]);
             if ($user instanceof \ElggUser) {
+                elgg_push_breadcrumb(elgg_echo('calendar_ui:user:profile', array($user->name)), 'profile/'.$user->username);
+                
                 elgg_set_page_owner_guid($user->getGUID());
                 $resource_vars['username'] = $page[0];
                 
@@ -123,6 +124,8 @@ function calendar_ui_page_handler($page) {
                 }
             }            
             else {
+                // elgg_push_breadcrumb(elgg_echo('calendar_ui:site'), 'calendar');
+                
                 if ( CalendarOptions::isSiteCalendarEnabled() ) {
                     // go to site calendar only if enabled in settings
                     echo elgg_view_resource('calendar_ui/calendar', $resource_vars);

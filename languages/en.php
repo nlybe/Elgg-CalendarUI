@@ -18,6 +18,7 @@ $lang = array(
     'calendar_ui:calendar:user:disabled' => "User's calendar is not enabled",
     
     // calendar
+    'calendar_ui:user:profile' => "%s's Profile",
     'calendar_ui:user:title' => "%s's Calendar",
     'calendar_ui:events:calendar:display_name' => '%s\'s Calendar',
     'calendar_ui:calendar:invalid' => 'Invalid calendar',
