@@ -12,11 +12,11 @@ $calendar = elgg_extract('calendar', $vars, '');
 $business_hours = elgg_extract('business_hours', $vars, '');
 $business_hours = json_decode($business_hours, true);
 
- elgg_view('input/button', array(
-    'value' => elgg_echo('calendar_ui:calendar:business_hours:add_more'),
-    'class' => 'elgg-button elgg-button-action add_field_button',
-    'id' => 'add_more',
-)).' '.elgg_view_icon('plus');
+//elgg_view('input/button', array(
+//    'value' => elgg_echo('calendar_ui:calendar:business_hours:add_more'),
+//    'class' => 'elgg-button elgg-button-action add_field_button',
+//    'id' => 'add_more',
+//)).' '.elgg_view_icon('plus');
 
 echo elgg_format_element('button', [
         'class'=>'elgg-button elgg-button-action add_field_button',
