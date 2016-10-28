@@ -3,7 +3,7 @@
  * Elgg Calendar UI plugin
  * @package calendar_ui
  */
-
+ 
 namespace Events\API;
 use Events\API\Util;
 
