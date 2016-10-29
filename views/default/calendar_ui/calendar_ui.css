@@ -110,4 +110,8 @@
     text-align: center;
 }
 
+.elgg-form-calendar-ui-business-hours .divTableRow_h {
+    display: none;
+}
+
 /* ******************* */

@@ -94,7 +94,8 @@ $new_entry .= elgg_format_element('div', ['class'=>'divTableCell'], elgg_view_in
 )));
 
 $new_entry .= $remove_btn;
-
+// add a hidden line for using when click od 'add' button
+$new_entry_h = elgg_format_element('div', ['class'=>'divTableRow divTableRow_h'], $new_entry);
 $new_entry = elgg_format_element('div', ['class'=>'divTableRow'], $new_entry); 
         
 ?>
@@ -115,6 +116,7 @@ $new_entry = elgg_format_element('div', ['class'=>'divTableRow'], $new_entry);
             else
                 echo $new_entry; 
         ?>
+        <?php echo $new_entry_h; ?>
     </div>
 </div>
 
@@ -139,6 +141,7 @@ echo elgg_format_element('div', ['class'=>'elgg-foot'], $footer);
             e.preventDefault();
             if(x < max_fields){ //max input box allowed
                 var last_line = $(".divTableRow:last").clone();
+                last_line.removeClass('divTableRow_h');
 //console.log(last_line);                
                 x++; //text box increment
                 //$(wrapper).append('<?php echo $new_entry; ?>'); // OBS
