@@ -1,4 +1,5 @@
-# Elgg Calendar UI
+Elgg Calendar UI
+================
 
 ![Elgg 2.1](https://img.shields.io/badge/Elgg-2.1-orange.svg?style=flat-square)
 
