@@ -4,7 +4,7 @@
  * @package calendar_ui
  */
 
-use CalendarOptions;
+// use CalendarOptions; // OBS
 
 $title = elgg_extract('title', $vars, '');
 $description = elgg_extract('description', $vars, '');

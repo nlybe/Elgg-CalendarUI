@@ -80,7 +80,7 @@ function calendar_ui_init() {
     elgg_register_action('calendar_ui/search', "$action_path/search.php", 'public');
     elgg_register_action('calendar_ui/add_event', "$action_path/add_event.php");
     elgg_register_action('calendar_ui/view_event', "$action_path/view_event.php", 'public');
-    elgg_register_action('calendar_ui/business_hours', "$action_path/business_hours.php", 'public');    
+    elgg_register_action('calendar_ui/business_hours', "$action_path/business_hours.php");    
     
     // replace delete action from events_api
     elgg_register_action('events/delete');
