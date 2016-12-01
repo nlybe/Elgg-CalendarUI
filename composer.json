@@ -1,6 +1,21 @@
 {
     "name": "nlybe/calendar_ui",
+    "description": "Elgg calendar UI integrating the JS library FullCalendar.io.",
     "type": "elgg-plugin",
+    "keywords": [
+        "elgg",
+        "plugin",
+        "calendar",
+        "FullCalendar"
+    ],
+    "license": "GPL-2.0",
+    "authors": [
+        {
+            "name": "Nikos Lyberakis",
+            "email": "nikos@lyberakis.gr",
+            "role": "Developer"
+        }
+    ],
     "require": {
         "composer/installers": ">=1.0.8"
     },
@@ -8,6 +23,5 @@
         "php": ">=5.3.3",
         "composer/installers": ">=1.0.8",
         "moment/moment": ">=2.14.1"
-    },        
-    "license": "GPL-2.0"
+    }
 }
