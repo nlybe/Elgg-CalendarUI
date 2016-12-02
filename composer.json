@@ -18,7 +18,7 @@
         }
     ],
     "require": {
-        "robloach/component-installer": "*"
+        "moment/moment": ">=2.14.1"
     },
     "extra": {
         "installer-name": "calendar_ui"
