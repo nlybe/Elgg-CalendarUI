@@ -8,6 +8,7 @@
         "calendar",
         "FullCalendar"
     ],
+    "homepage": "https://github.com/nlybe/Elgg-CalendarUI",
     "license": "GPL-2.0",
     "authors": [
         {
