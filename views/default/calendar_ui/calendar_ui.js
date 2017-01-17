@@ -4,6 +4,7 @@ define(function (require) {
     require('jquery-ui');
     require('cui_fullcalendar_js');
     require('cui_locale_all');
+    require('moment_timezone');
        
     // get plugin settings
     var cui_settings = require("calendar_ui/settings");
@@ -20,9 +21,22 @@ define(function (require) {
         var business_hours = $('#business_hours').html();
         
         var selectable = false;
-        if (elgg.get_page_owner_guid() == elgg.get_logged_in_user_guid() || elgg.is_admin_logged_in()) {
+        // if need to force calendar to be selectable no matter user's permissions, 
+        // set the content of #c_selectable dom element on view which calls this JS to 1 
+        var c_selectable = $('#c_selectable').html();   
+        if (elgg.get_page_owner_guid() == elgg.get_logged_in_user_guid() || elgg.is_admin_logged_in() || c_selectable==1) {
             selectable = true;
         }  
+        
+        // We need to know if user with selectable permission is owner/admin or other user. 
+        // It is used to restrict editable to business hour if other
+        var limited_user = false;
+        if (selectable 
+                && elgg.get_page_owner_guid() != elgg.get_logged_in_user_guid() 
+                && !elgg.is_admin_logged_in() 
+                && c_selectable==1) {
+            limited_user = true;
+        }
         
         // set calendar business hours
         var businessHours = [];
@@ -34,9 +48,9 @@ define(function (require) {
                     end: value.end
                 });
             });
-        }        
-
-        $('#calendar').fullCalendar({
+        }       
+        
+        var calendarOptions = {
             //theme: true,
             timezone: timezone,
             locale: locale,
@@ -55,7 +69,7 @@ define(function (require) {
             select: function(start, end) {
                 if (events_api_exists==1) { // only if events_api plugin is enabled
                     if (elgg.is_logged_in() && selectable) {
-                        if (!isRenderedEvent(start,end)) {  // check if selected dates overlap with existed events    
+                        if (!isRenderedEvent(start, end)) {  // check if selected dates overlap with existed events    
                             // set values on form according date/time selected
                             $('#start_date').val(start.format('YYYY-MM-DD'));
                             $('#start_time').val(start.format('h:mma'));
@@ -203,7 +217,6 @@ define(function (require) {
                 }
             },
             eventClick: function(event) {
-                console.log('11');
                 if (events_api_exists==1) { // only if events_api plugin is enabled
                     if (event.url) {
                         var lightbox = require('elgg/lightbox');
@@ -238,8 +251,13 @@ define(function (require) {
                     );
                 }
             }
-        });
-    
+        };
+        
+        if (limited_user) {
+            calendarOptions['selectConstraint'] = 'businessHours';
+        }
+        $('#calendar').fullCalendar(calendarOptions);
+        
         $(".fc-today-button").click(function() {
             $("calendar").fullCalendar({
                 eventAfterAllRender: function(){
@@ -255,10 +273,27 @@ define(function (require) {
          * @param {type} end
          * @returns {Boolean}
          */
-        var isRenderedEvent = function(start,end){
-            console.log(cui_settings['allow_overlap']);
+        var isRenderedEvent = function(start, end){
+            var moment = require('moment');
+ 
+            // extract dates from moment object
+            var start_x = moment(start).toDate();
+            var end_x = moment(end).toDate();            
+
+            //console.log(cui_settings['allow_overlap']);
             return $("#calendar").fullCalendar('clientEvents', function (event) {
-                //return (event.rendering === "background" && //Add more conditions here if you only want to check against certain events
+
+                // calculate time of start in timezone of event.start
+                var tzDifferenceS = moment(event.start).utcOffset();
+                var start_y = new Date(start_x.getTime() - tzDifferenceS * 60 * 1000); 
+                start = moment(start_y);
+                
+                // calculate time of end in timezone of event.end
+                var tzDifferenceE = moment(event.end).utcOffset();
+                var end_y = new Date(end_x.getTime() - tzDifferenceE * 60 * 1000); 
+                end = moment(end_y);                
+
+                // finally compare if overlapping events
                 return (!cui_settings['allow_overlap'] && //Add more conditions here if you only want to check against certain events
                     (
                         ((start.isAfter(event.start) || start.isSame(event.start,'minute')) && start.isBefore(event.end)) ||

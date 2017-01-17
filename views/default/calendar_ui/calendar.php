@@ -17,6 +17,7 @@ $c_elements .= elgg_format_element('span', [ 'id' => "c_calendar_guid"], $vars['
 $c_elements .= elgg_format_element('span', [ 'id' => "c_owner_guid"], $vars['owner_guid']);
 $c_elements .= elgg_format_element('span', [ 'id' => "events_api_exists"], (elgg_is_active_plugin('events_api')?1:0));
 $c_elements .= elgg_format_element('span', [ 'id' => "business_hours"], $vars['business_hours']);
+$c_elements .= elgg_format_element('span', [ 'id' => "c_selectable"], 0);
 
 echo elgg_format_element('div', [ 'class' => "c_elements"], $c_elements);
 echo elgg_format_element('div', [ 'class' => "cui_timezone"], elgg_echo('calendar_ui:timezone', array($vars['timezone'])));

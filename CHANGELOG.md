@@ -1,3 +1,8 @@
+### 2.1.4 (Jan 2017)
+- Added: Option to force calendar to be selectable/editable no matter user's permissions
+- Fixed: Overlapping check for events in time zone other than UTC now works
+- Small bug fixes
+
 ### 2.1.3 (2016-12-01)
 - Fixed: composer dependencies
 

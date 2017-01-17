@@ -38,6 +38,11 @@ function calendar_ui_init() {
     elgg_define_js('cui_locale_all', array(
         'deps' => array('moment', 'jquery', 'jquery-ui', 'cui_fullcalendar_js'),
         'exports' => 'cui_locale_all',
+    ));   
+    
+    elgg_define_js('moment_timezone', array(
+        'deps' => array('moment'),
+        'exports' => 'moment_timezone',
     ));    
     
     elgg_define_js('jquery-mousewheel', array(

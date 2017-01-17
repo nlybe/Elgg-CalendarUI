@@ -18,7 +18,8 @@ if (elgg_is_active_plugin('events_api')) {
     // if valid user asked, display his public calendar
     if ($user instanceof \ElggUser) {
         $calendar = Calendar::getPublicCalendar($user);
-        if ($calendar instanceof Calendar) {
+        //if ($calendar instanceof Calendar) { // OBS
+        if (elgg_instanceof($calendar, 'object', 'calendar')) {   
             $title = $calendar->getDisplayName();
         }
         else {
@@ -32,7 +33,8 @@ if (elgg_is_active_plugin('events_api')) {
     else { // if not vald user or any user asked, display site calendar
         $site = elgg_get_site_entity();
         $calendar = Calendar::getPublicCalendar($site);
-        if ($calendar instanceof Calendar) {
+        //if ($calendar instanceof Calendar) { // OBS
+        if (elgg_instanceof($calendar, 'object', 'calendar')) {       
             $title = $calendar->getDisplayName();
         }
         else {
@@ -60,7 +62,7 @@ if (elgg_is_active_plugin('events_api')) {
     $vars['calendar_guid'] = $calendar->getGUID();
     $vars['owner_guid'] = $owner_guid;
     $vars['timezone'] = CalendarOptions::getActiveTimezone();
-    
+ 
     $business_hours = $calendar->getAnnotations(CalendarOptions::CALENDAR_UI_BUSINESS_HOURS);
     if ($business_hours) {
         $vars['business_hours'] = $business_hours[0]->value;

@@ -101,6 +101,7 @@ function calendar_ui_owner_block_menu($hook, $type, $return, $params) {
             $return[] = $item;
         }
     } 
+    
 // this will be enable when add calendar to groups    
 //    else {
 //        if ($params['entity']->calendar_ui_enable != 'no') {

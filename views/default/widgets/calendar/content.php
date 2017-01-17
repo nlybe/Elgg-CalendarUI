@@ -18,7 +18,8 @@ if (elgg_is_active_plugin('events_api')) {
     if ($user instanceof \ElggUser) {
         if (CalendarOptions::isUserCalendarEnabled($user->username)) {
             $calendar = Calendar::getPublicCalendar($user);
-            if ($calendar instanceof Calendar) {
+            // if ($calendar instanceof Calendar) { // OBS
+            if (elgg_instanceof($calendar, 'object', 'calendar')) {   
                 $title = $calendar->getDisplayName();
                 
                 // set values to be used on events submit
@@ -35,7 +36,8 @@ if (elgg_is_active_plugin('events_api')) {
     else { // if not vald user or any user asked, display site calendar
         $site = elgg_get_site_entity();
         $calendar = Calendar::getPublicCalendar($site);
-        if ($calendar instanceof Calendar) {
+        // if ($calendar instanceof Calendar) { // OBS
+        if (elgg_instanceof($calendar, 'object', 'calendar')) {   
             $title = $calendar->getDisplayName();
             
             // set values to be used on events submit

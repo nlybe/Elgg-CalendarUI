@@ -15,6 +15,8 @@ if (!$event instanceof Event || !$event->canEdit()) {
     forward(REFERER);
 }
 
+$calendar = $event->getContainerEntity();
+
 try {
     $event->delete();
     system_message(elgg_echo('events:success:deleted'));
@@ -23,4 +25,4 @@ try {
 }
 
 // go back to calendar
-forward(REFERRER);
+forward($calendar->getURL());

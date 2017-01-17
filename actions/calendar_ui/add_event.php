@@ -41,7 +41,8 @@ else {
     $calendar_guid = get_input('calendar');
     $calendar = get_entity($calendar_guid);
 
-    if (!$calendar instanceof Calendar) {
+    //if (!$calendar instanceof Calendar) { // OBS
+    if (!elgg_instanceof($calendar, 'object', 'calendar')) {   
         $calendar = Calendar::getPublicCalendar($user);
     }
 
