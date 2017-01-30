@@ -1,5 +1,5 @@
 ### 2.1.5 (Jan 2017)
-- Fixed: PHP warning about graphics folder
+- Fixed: PHP warning about graphics folder 
 
 ### 2.1.4 (Jan 2017)
 - Added: Option to force calendar to be selectable/editable no matter user's permissions

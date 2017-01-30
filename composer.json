@@ -3,7 +3,7 @@
     "description": "Elgg calendar UI integrating the JS library FullCalendar.io.",
     "type": "elgg-plugin",
     "keywords": [
-        "elgg",
+        "elgg", 
         "plugin",
         "calendar",
         "FullCalendar"
