@@ -18,7 +18,8 @@
         }
     ],
     "require": {
-        "moment/moment": ">=2.17.1"
+        "moment/moment": ">=2.17.1",
+        "arckinteractive/events_api": "2.x"
     },
     "extra": {
         "installer-name": "calendar_ui"
