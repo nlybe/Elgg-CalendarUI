@@ -140,8 +140,6 @@ function calendar_ui_page_handler($page) {
                     forward(elgg_get_site_url());
                 }
             }
-            
-            return false;
     }     
     
     return true;
